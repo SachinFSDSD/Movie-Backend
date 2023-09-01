@@ -3,7 +3,7 @@ const movie = require("../module/movie.module");
 const userTypes1 = require("../utils/constans").userType;
 const User = require("../module/userModule");
 const theaterModule = require("../module/theater.module");
-const { sendMail } = require("../utils/NotificationClient");
+const { sendMail, client } = require("../utils/NotificationClient");
 
 exports.getAllTheater = async (req, res) => {
   const queryObject = {};
@@ -72,7 +72,7 @@ exports.createTheater = async (req, res) => {
         "New theater created with the thetaer: " + thetrer._id,
         JSON.stringify(theraterObject),
         [userType.email, client.email],
-        "mba-no-reply@mba.com"
+        "rajusachin090@gmail.com"
       );
     }
   } catch (error) {
@@ -103,7 +103,14 @@ exports.updateTheater = async (req, res) => {
     req.body.pinCode != undefined ? req.body.pinCode : savedTheatre.pincode;
 
   var updatedTheatre = await savedTheatre.save();
-
+  console.log(admin, client);
+  sendMail(
+    savedTheatre._id,
+    "Theater updated with the theater id :" + savedTheatre._id,
+    JSON.stringify(updatedTheatre),
+    [admin.email, client.email],
+    "rajusachin090@gmail.com"
+  );
   return res.status(200).send(updatedTheatre);
 };
 

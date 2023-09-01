@@ -67,7 +67,7 @@ exports.createPayment = async (req, res) => {
       "Payment successfull for the booking id: " + paymnet.bookingId,
       JSON.stringify(booking),
       user.email,
-      "mba-no-reply@gmail.com"
+      "rajusachin090@gmail.com"
     );
     return res.status(201).send(paymnet);
   } catch (error) {
