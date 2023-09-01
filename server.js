@@ -3,8 +3,11 @@ const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const DB_CONFIG = require("./config/server.congif");
 const DBconfig = require("./config/dbconfig");
-const User = require("./module/userModule");
+const Users = require("./module/userModule");
 const bcrypt = require("bcryptjs");
+const Movies = require("./module/movie.module");
+const Theatre = require("./module/theater.module");
+const Bookings = require("./module/booking.module");
 
 const app = express();
 
@@ -22,26 +25,71 @@ db.once("open", () => {
 });
 
 async function init() {
-  await User.collection.drop();
-  var user = await User.findOne({ userId: "admin" });
+  await Users.collection.drop();
+  const user1 = await Users.create({
+    name: "sachin",
+    userId: "admin",
+    email: "rajusachin0900@gmail.com",
+    userType: "ADMIN",
+    password: bcrypt.hashSync("admin", 8),
+  });
 
-  if (user) {
-    console.log("Admin id already present");
-    return;
-  }
-  try {
-    user = await User.create({
-      name: "sachin",
-      userId: "ADMIN",
-      password: bcrypt.hashSync("admin", 8),
-      email: "admin12@gmail.com",
-      userType: "ADMIN",
-      userStatus: "APPROVED",
-    });
-    console.log(user);
-  } catch (error) {
-    console.log("Unable to add admin " + error.message);
-  }
+  await Movies.collection.drop();
+  const movie1 = await Movies.create({
+    name: "Radhe Shyam",
+    description: "Comedy Drama Movie",
+    casts: ["Prabhas", "Pooja Hegde"],
+    director: "Radha Krishna Kumar",
+    trailerUrl: "http://RadhaShyam/trailers/1",
+    postUrl:
+      "https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg",
+    language: "Hindi",
+    releaseDate: "11-02-2022",
+    releaseStatus: "RELEASED",
+  });
+  const movie2 = await Movies.create({
+    name: "Radhe Shyam 2",
+    description: "Comedy Drama Movie",
+    casts: ["Prabhas", "Pooja Hegde"],
+    director: "Radha Krishna Kumar",
+    trailerUrl: "http://RadhaShyam/trailers/1",
+    postUrl:
+      "https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg",
+    language: "Hindi",
+    releaseDate: "11-02-2022",
+    releaseStatus: "RELEASED",
+  });
+  const movie3 = await Movies.create({
+    name: "Radhe Shyam 3",
+    description: "Comedy Drama Movie",
+    casts: ["Prabhas", "Pooja Hegde"],
+    director: "Radha Krishna Kumar",
+    trailerUrl: "http://RadhaShyam/trailers/1",
+    postUrl:
+      "https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg",
+    language: "Hindi",
+    releaseDate: "11-02-2022",
+    releaseStatus: "RELEASED",
+  });
+  console.log("Two users created successfully");
+
+  const client = await Users.create({
+    name: "Client1",
+    userId: "client",
+    email: "rajusachin090@gmail.com",
+    userType: "CLIENT",
+    password: bcrypt.hashSync("Welcome", 8),
+  });
+  await Theatre.collection.drop();
+  const theatre = await Theatre.create({
+    name: "FunCinema",
+    city: "Bangalore",
+    description: "Top class Theatre",
+    pincode: 560052,
+    movies: [movie1._id],
+    ownerId: client._id,
+  });
+  console.log("A movie and a theatre created successfully");
 }
 require("./routes/booking.route")(app);
 require("./routes/movie.route")(app);
