@@ -8,9 +8,10 @@ const bcrypt = require("bcryptjs");
 const Movies = require("./module/movie.module");
 const Theatre = require("./module/theater.module");
 const Bookings = require("./module/booking.module");
+const cors = require("cors");
 
 const app = express();
-
+app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
