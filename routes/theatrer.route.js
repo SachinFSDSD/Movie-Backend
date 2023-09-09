@@ -6,7 +6,7 @@ const authjwt = require("../middleware/authJwt.verify");
 module.exports = function (app) {
   app.get(
     "/movieBooking/api/v1/theater",
-    [authjwt.isAdminorClient],
+
     theaterController.getAllTheater
   );
   app.get(
