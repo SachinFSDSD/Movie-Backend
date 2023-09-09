@@ -6,12 +6,12 @@ const authjwt = require("../middleware/authJwt.verify");
 module.exports = function (app) {
   app.get(
     "/movieBooking/api/v1/theater",
-    [authjwt.verifyToken],
+    [authjwt.isAdminorClient],
     theaterController.getAllTheater
   );
   app.get(
     "/movieBooking/api/v1/theater/:id",
-    [authjwt.verifyToken],
+    [authjwt.isAdminorClient],
     theaterController.getTheaterById
   );
   app.post(
@@ -34,7 +34,7 @@ module.exports = function (app) {
 
   app.put(
     "/movieBooking/api/v1/theater/:id/movies",
-    [authjwt.verifyToken],
+    [authjwt.isAdminorClient],
     theaterController.addmovieTotheater
   );
 
