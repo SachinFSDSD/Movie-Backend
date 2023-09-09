@@ -34,6 +34,7 @@ async function init() {
     userType: "ADMIN",
     password: bcrypt.hashSync("admin", 8),
   });
+  console.log(user1);
 
   await Movies.collection.drop();
   const movie1 = await Movies.create({
