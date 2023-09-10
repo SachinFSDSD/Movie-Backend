@@ -73,8 +73,15 @@ async function init() {
     releaseDate: "11-02-2022",
     releaseStatus: "RELEASED",
   });
-  console.log("Two users created successfully");
+  console.log("Admin  created successfully");
 
+  const customer = await Users.create({
+    name: "customer",
+    userId: "customer",
+    email: "raju@gmail.com",
+    userType: "CUSTOMER",
+    password: bcrypt.hashSync("123", 8),
+  });
   const client = await Users.create({
     name: "Client1",
     userId: "client",
