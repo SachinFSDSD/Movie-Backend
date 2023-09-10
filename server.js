@@ -80,6 +80,7 @@ async function init() {
     userId: "customer",
     email: "raju@gmail.com",
     userType: "CUSTOMER",
+    userStatus: "APPROVED",
     password: bcrypt.hashSync("123", 8),
   });
   const client = await Users.create({
