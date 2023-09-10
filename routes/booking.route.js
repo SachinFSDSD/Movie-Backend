@@ -6,12 +6,12 @@ const validateBookingRequest = require("../middleware/validateBookingRequest");
 module.exports = function (app) {
   app.get(
     "/movieBooking/api/v1/booking",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    [authJwt.verifyToken],
     bookingController.getAllbookings
   );
   app.get(
     "/movieBooking/api/v1/booking/:id",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    [authJwt.verifyToken],
     bookingController.getAllbookingsById
   );
   app.post(
@@ -21,16 +21,12 @@ module.exports = function (app) {
   );
   app.put(
     "/movieBooking/api/v1/booking",
-    [
-      authJwt.verifyToken,
-      authJwt.isAdmin,
-      verifyBookingReqBody.validateBookingRequest,
-    ],
+    [authJwt.verifyToken, verifyBookingReqBody.validateBookingRequest],
     bookingController.updateBooking
   );
   app.delete(
     "/movieBooking/api/v1/booking/:id",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    [authJwt.verifyToken],
     bookingController.deleteBooking
   );
 };

@@ -89,6 +89,7 @@ async function init() {
     userType: "CLIENT",
     password: bcrypt.hashSync("Welcome", 8),
   });
+  console.log(customer);
   await Theatre.collection.drop();
   const theatre = await Theatre.create({
     name: "FunCinema",
