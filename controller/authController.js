@@ -37,7 +37,7 @@ exports.signUp = async (req, res) => {
 exports.signIn = async (req, res) => {
   const user = await User.findOne({ userId: req.body.userId });
 
-  if (user == null) {
+  if (!user) {
     res.status(400).send({
       message: "UserId does not exit ",
     });
@@ -62,7 +62,7 @@ exports.signIn = async (req, res) => {
 
   console.log(user.userId);
   var token = jwt.sign({ id: user.userId }, config.secretkey, {
-    expiresIn: 1200,
+    expiresIn: 86400,
   });
 
   res.status(200).send({
