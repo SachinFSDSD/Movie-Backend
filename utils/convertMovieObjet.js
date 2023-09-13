@@ -7,7 +7,7 @@ exports.movieResponse = (movies) => {
       name: movie.name,
       description: movie.description,
       cast: movie.cast,
-      postUrl: movie.postUrl,
+      posterUrl: movie.posterUrl,
       language: movie.language,
       relaseDate: movie.relaseDate,
       director: movie.director,
