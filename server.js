@@ -43,7 +43,7 @@ async function init() {
     casts: ["Prabhas", "Pooja Hegde"],
     director: "Radha Krishna Kumar",
     trailerUrl: "http://RadhaShyam/trailers/1",
-    postUrl:
+    posterUrl:
       "https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg",
     language: "Hindi",
     releaseDate: "11-02-2022",
@@ -55,7 +55,7 @@ async function init() {
     casts: ["Prabhas", "Pooja Hegde"],
     director: "Radha Krishna Kumar",
     trailerUrl: "http://RadhaShyam/trailers/1",
-    postUrl:
+    posterUrl:
       "https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg",
     language: "Hindi",
     releaseDate: "11-02-2022",
@@ -67,7 +67,7 @@ async function init() {
     casts: ["Prabhas", "Pooja Hegde"],
     director: "Radha Krishna Kumar",
     trailerUrl: "http://RadhaShyam/trailers/1",
-    postUrl:
+    posterUrl:
       "https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg",
     language: "Hindi",
     releaseDate: "11-02-2022",
