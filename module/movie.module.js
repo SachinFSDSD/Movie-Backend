@@ -13,7 +13,7 @@ const moviesSchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
-  postUrl: {
+  posterUrl: {
     type: String,
     required: true,
   },

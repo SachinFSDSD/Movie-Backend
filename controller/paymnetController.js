@@ -62,13 +62,13 @@ exports.createPayment = async (req, res) => {
     await booking.save();
 
     const user = await Users.findOne({ userId: req.userId });
-    sendEmail(
-      paymnet._id,
-      "Payment successfull for the booking id: " + paymnet.bookingId,
-      JSON.stringify(booking),
-      user.email,
-      "rajusachin090@gmail.com"
-    );
+    // sendEmail(
+    //   paymnet._id,
+    //   "Payment successfull for the booking id: " + paymnet.bookingId,
+    //   JSON.stringify(booking),
+    //   user.email,
+    //   "rajusachin090@gmail.com"
+    // );
     return res.status(201).send(paymnet);
   } catch (error) {
     console.log(error.message);
