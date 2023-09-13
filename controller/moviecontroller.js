@@ -41,7 +41,7 @@ exports.createMovie = async (req, res) => {
     description: req.body.description,
     cast: req.body.cast,
     director: req.body.director,
-    postUrl: req.body.postUrl,
+    posterUrl: req.body.postUrl,
     language: req.body.language,
     releaseDate: req.body.releaseDate,
     releaseStatus: req.body.releastate,
@@ -88,8 +88,8 @@ exports.updateMovie = async (req, res) => {
   movieIdreq.director =
     req.body.director != undefined ? req.body.director : movieIdreq.director;
 
-  movieIdreq.postUrl =
-    req.body.postUrl != undefined ? req.body.postUrl : movieIdreq.postUrl;
+  movieIdreq.posterUrl =
+    req.body.posterUrl != undefined ? req.body.posterUrl : movieIdreq.posterUrl;
   movieIdreq.language =
     req.body.language != undefined ? req.body.language : movieIdreq.language;
   movieIdreq.releaseDate =
