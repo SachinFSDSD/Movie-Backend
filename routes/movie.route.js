@@ -3,11 +3,7 @@ const verifyMovieReqBody = require("../middleware/verifymovie.middleware");
 const authJwt = require("../middleware/authJwt.verify");
 
 module.exports = function (app) {
-  app.get(
-    "/movieBooking/api/v1/movies",
-    [authJwt.verifyToken],
-    movieController.getAllMovies
-  );
+  app.get("/movieBooking/api/v1/movies", movieController.getAllMovies);
 
   app.get("/movieBooking/api/v1/movies/:id", movieController.getMovieById);
 
