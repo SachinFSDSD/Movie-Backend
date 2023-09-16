@@ -5,7 +5,10 @@ const authjwt = require("../middleware/authJwt.verify");
 
 module.exports = function (app) {
   app.get("/movieBooking/api/v1/theater", theaterController.getAllTheater);
-  app.get("/movieBooking/api/v1/theater/:id", theaterController.getTheaterById);
+  app.get(
+    "/movieBooking/api/v1/theater/:theatreId",
+    theaterController.getTheaterById
+  );
   app.post(
     "/movieBooking/api/v1/theater",
     [authjwt.verifyToken],

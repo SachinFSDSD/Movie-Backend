@@ -2,7 +2,6 @@ const theater1 = require("../module/theater.module");
 const movie = require("../module/movie.module");
 const userTypes1 = require("../utils/constans").userType;
 const User = require("../module/userModule");
-const theaterModule = require("../module/theater.module");
 const { sendMail, client } = require("../utils/NotificationClient");
 
 exports.getAllTheater = async (req, res) => {
@@ -31,11 +30,9 @@ exports.getAllTheater = async (req, res) => {
 };
 
 exports.getTheaterById = async (req, res) => {
-  const thesterId = {
-    _id: req.params._id,
-  };
+  const thesterId = req.params.theaterId;
   try {
-    const theti = await theater1.findOne(thesterId);
+    const theti = await theater1.findOne({ _id: thesterId });
     return res.status(200).send(theti);
   } catch (error) {
     return res.status(500).send({
