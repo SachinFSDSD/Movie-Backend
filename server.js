@@ -100,6 +100,7 @@ async function init() {
     movies: [movie1._id],
     ownerId: client._id,
   });
+  console.log(theatre);
   console.log("A movie and a theatre created successfully");
 }
 require("./routes/booking.route")(app);
