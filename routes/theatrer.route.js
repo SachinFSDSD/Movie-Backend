@@ -11,7 +11,7 @@ module.exports = function (app) {
   );
   app.get(
     "/movieBooking/api/v1/theater/:id",
-    [authjwt.isAdminorClient],
+    [authjwt.verifyToken],
     theaterController.getTheaterById
   );
   app.post(
