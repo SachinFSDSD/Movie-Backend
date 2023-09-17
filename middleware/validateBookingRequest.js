@@ -25,19 +25,19 @@ validateBookingRequest = async (req, res, next) => {
     });
   }
 
-  // const userid = await User.findOne({ userId: req.userId });
-  // req.body.userId = userid;
-  // if (!userid) {
-  //   return res.status(400).send({
-  //     message: "Failed ! user Id is not provided",
-  //   });
-  // }
+  const userid = await User.findOne({ userId: req.userId });
+  req.body.userId = userid;
+  if (!userid) {
+    return res.status(400).send({
+      message: "Failed ! user Id is not provided",
+    });
+  }
 
-  // if (!ObjectId.isValid(userid)) {
-  //   return res.status(400).send({
-  //     message: "Failed ! userId is not valid",
-  //   });
-  // }
+  if (!ObjectId.isValid(userid)) {
+    return res.status(400).send({
+      message: "Failed ! userId is not valid",
+    });
+  }
 
   const theater = await Theater.findOne({ _id: req.body.theaterId });
 
