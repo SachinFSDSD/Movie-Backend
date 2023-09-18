@@ -4,11 +4,7 @@ const verifyBookingReqBody = require("../middleware/validateBookingRequest");
 const validateBookingRequest = require("../middleware/validateBookingRequest");
 
 module.exports = function (app) {
-  app.get(
-    "/movieBooking/api/v1/booking",
-    [authJwt.verifyToken],
-    bookingController.getAllbookings
-  );
+  app.get("/movieBooking/api/v1/booking", bookingController.getAllbookings);
   app.get(
     "/movieBooking/api/v1/booking/:id",
     [authJwt.verifyToken],
