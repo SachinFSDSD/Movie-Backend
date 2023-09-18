@@ -10,11 +10,7 @@ module.exports = function (app) {
     [authJwt.verifyToken],
     bookingController.getAllbookingsById
   );
-  app.post(
-    "/movieBooking/api/v1/booking",
-    [authJwt.verifyToken, validateBookingRequest.validateBookingRequest],
-    bookingController.createBooking
-  );
+  app.post("/movieBooking/api/v1/booking", bookingController.createBooking);
   app.put(
     "/movieBooking/api/v1/booking",
     [authJwt.verifyToken, verifyBookingReqBody.validateBookingRequest],

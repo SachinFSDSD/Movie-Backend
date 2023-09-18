@@ -13,9 +13,5 @@ module.exports = function (app) {
     [authJwt.verifyToken],
     paymnetController.getPaymentById
   );
-  app.post(
-    "/movieBooking/api/v1/payments",
-    [authJwt.verifyToken],
-    paymnetController.createPayment
-  );
+  app.post("/movieBooking/api/v1/payments", paymnetController.createPayment);
 };
